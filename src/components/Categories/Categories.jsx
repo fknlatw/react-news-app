@@ -1,8 +1,9 @@
+import { forwardRef } from "react";
 import styles from "./styles.module.css";
 
-export const Categories = ({categories, setSelectedCategory, selectedCategory}) => {
+export const Categories = forwardRef(({categories, setSelectedCategory, selectedCategory}, ref) => {
     return (
-      <div className={styles.categories}>
+      <div ref={ref} className={styles.categories}>
         <button
           className={!selectedCategory ? styles.active : styles.item}
           onClick={() => setSelectedCategory(null)}
@@ -25,4 +26,6 @@ export const Categories = ({categories, setSelectedCategory, selectedCategory}) 
         })}
       </div>
     );
-}
+});
+
+Categories.displayName  =  "Categories";
